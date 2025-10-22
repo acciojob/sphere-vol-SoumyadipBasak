@@ -27,4 +27,13 @@ function volume_sphere() {
   // Optional: return value for further use
   return volume;
 }
-window.onload = document.getElementById('MyForm').onsubmit = volume_sphere;
+
+window.onload = function() {
+  const form = document.getElementById('MyForm');
+  if (form) {
+    form.onsubmit = function(event) {
+      event.preventDefault(); // Prevent actual form submission
+      volume_sphere();
+    };
+  }
+};
